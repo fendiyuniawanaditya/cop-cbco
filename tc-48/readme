@@ -16,7 +16,7 @@ Automation Task involving
     10. Jenkins to execute yaml for gateway and servicevitualization
     11. Test using browser and response must be "hello world on PROD"
 
-Step to do  : 
+Steps to run  : 
 1. in Intelij Checkout from https://github.com/fendiyuniawanaditya/helloworldJunit.git
 2. make same changes and push to changes to git
 3. in jenkins run job '*-pull-gitlab', it will trigger another job until deploy to UAT env
