@@ -1,3 +1,29 @@
 +++++++++++++++++++++
 TC-48
 +++++++++++++++++++++
+
+Automation Task involving
+    1. Push from IDE to gitlab
+    2. Run Job in Jenkins to pull the source code
+    3. Jenkins to build,test, and push to image repository
+    4. Jenkins to deploy to DEV env
+    5. execute kubectl expose, because we use small cluster without istio
+    6. Test using browser and response must be "hello wold on DEV"
+    7. Jenkins to deploy to UAT env
+    8. execute kubectl expose, because we use small cluster without istio
+    9. Test using browser and response must be "hello world on UAT"
+    9. Jenkins to deploy to PROD env
+    10. Jenkins to execute yaml for gateway and servicevitualization
+    11. Test using browser and response must be "hello world on PROD"
+
+Step to do  : 
+1. in Intelij Checkout from https://github.com/fendiyuniawanaditya/helloworldJunit.git
+2. make same changes and push to changes to git
+3. in jenkins run job '*-pull-gitlab', it will trigger another job until deploy to UAT env
+4. go to pks client tools, and execute (kubectl get svc --all-namespaces), check IP for the apps, and test from browser
+
+5. open browser check url /helow for DEV, it should return ('hello world in DEV'), test also for UAT
+
+6. approve deployment to production by clicking url in email
+
+7. go to pks client tools, and execute (kubecctl get svc --all-namespaces), get the IP, then access /helow from browser.
